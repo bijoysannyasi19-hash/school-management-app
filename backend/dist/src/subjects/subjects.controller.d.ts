@@ -3,12 +3,6 @@ export declare class SubjectsController {
     private readonly subjectsService;
     constructor(subjectsService: SubjectsService);
     getAllSubjects(classId?: string): Promise<({
-        class: {
-            id: string;
-            name: string;
-            teacherId: string | null;
-            section: string;
-        };
         teacher: ({
             user: {
                 profile: {
@@ -38,17 +32,23 @@ export declare class SubjectsController {
             };
         } & {
             id: string;
+            userId: string;
             employeeId: string;
             qualification: string | null;
             joiningDate: Date;
-            userId: string;
         }) | null;
+        class: {
+            id: string;
+            name: string;
+            section: string;
+            teacherId: string | null;
+        };
     } & {
         id: string;
         name: string;
-        code: string;
-        classId: string;
         teacherId: string | null;
+        classId: string;
+        code: string;
     })[]>;
     createSubject(body: {
         name: string;
@@ -58,9 +58,9 @@ export declare class SubjectsController {
     }): Promise<{
         id: string;
         name: string;
-        code: string;
-        classId: string;
         teacherId: string | null;
+        classId: string;
+        code: string;
     }>;
     updateSubject(id: string, body: {
         name: string;
@@ -70,15 +70,15 @@ export declare class SubjectsController {
     }): Promise<{
         id: string;
         name: string;
-        code: string;
-        classId: string;
         teacherId: string | null;
+        classId: string;
+        code: string;
     }>;
     deleteSubject(id: string): Promise<{
         id: string;
         name: string;
-        code: string;
-        classId: string;
         teacherId: string | null;
+        classId: string;
+        code: string;
     }>;
 }

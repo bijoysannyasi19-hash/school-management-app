@@ -31,10 +31,10 @@ export declare class TeachersService {
         };
     } & {
         id: string;
+        userId: string;
         employeeId: string;
         qualification: string | null;
         joiningDate: Date;
-        userId: string;
     })[]>;
     findOne(id: string): Promise<({
         user: {
@@ -65,10 +65,10 @@ export declare class TeachersService {
         };
     } & {
         id: string;
+        userId: string;
         employeeId: string;
         qualification: string | null;
         joiningDate: Date;
-        userId: string;
     }) | null>;
     create(data: any): Promise<{
         generatedPassword: any;
@@ -99,16 +99,16 @@ export declare class TeachersService {
             lastLogin: Date | null;
         };
         id: string;
+        userId: string;
         employeeId: string;
         qualification: string | null;
         joiningDate: Date;
-        userId: string;
     }>;
     remove(id: string): Promise<{
         id: string;
+        userId: string;
         employeeId: string;
         qualification: string | null;
         joiningDate: Date;
-        userId: string;
     }>;
 }

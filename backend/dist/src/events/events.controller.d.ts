@@ -5,33 +5,33 @@ export declare class EventsController {
     constructor(eventsService: EventsService);
     createEvent(body: CreateEventDto): Promise<{
         id: string;
-        title: string;
-        description: string;
         date: Date;
+        description: string;
+        title: string;
         location: string;
         imageUrl: string | null;
     }>;
     getEvents(): Promise<({
         registrations: {
             id: string;
-            registeredAt: Date;
-            status: string;
-            eventId: string;
             userId: string;
+            status: string;
+            registeredAt: Date;
+            eventId: string;
         }[];
     } & {
         id: string;
-        title: string;
-        description: string;
         date: Date;
+        description: string;
+        title: string;
         location: string;
         imageUrl: string | null;
     })[]>;
     registerForEvent(req: any, eventId: string): Promise<{
         id: string;
-        registeredAt: Date;
-        status: string;
-        eventId: string;
         userId: string;
+        status: string;
+        registeredAt: Date;
+        eventId: string;
     }>;
 }

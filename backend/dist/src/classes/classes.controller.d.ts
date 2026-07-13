@@ -3,6 +3,13 @@ export declare class ClassesController {
     private readonly classesService;
     constructor(classesService: ClassesService);
     findAll(): Promise<({
+        subjects: {
+            id: string;
+            name: string;
+            teacherId: string | null;
+            classId: string;
+            code: string;
+        }[];
         classTeacher: ({
             user: {
                 profile: {
@@ -32,10 +39,10 @@ export declare class ClassesController {
             };
         } & {
             id: string;
+            userId: string;
             employeeId: string;
             qualification: string | null;
             joiningDate: Date;
-            userId: string;
         }) | null;
         students: ({
             student: {
@@ -80,13 +87,6 @@ export declare class ClassesController {
             classId: string;
             academicYear: string;
         })[];
-        subjects: {
-            id: string;
-            name: string;
-            teacherId: string | null;
-            classId: string;
-            code: string;
-        }[];
     } & {
         id: string;
         name: string;
@@ -94,12 +94,27 @@ export declare class ClassesController {
         teacherId: string | null;
     })[]>;
     findOne(id: string): Promise<({
+        subjects: ({
+            teacher: {
+                id: string;
+                userId: string;
+                employeeId: string;
+                qualification: string | null;
+                joiningDate: Date;
+            } | null;
+        } & {
+            id: string;
+            name: string;
+            teacherId: string | null;
+            classId: string;
+            code: string;
+        })[];
         classTeacher: {
             id: string;
+            userId: string;
             employeeId: string;
             qualification: string | null;
             joiningDate: Date;
-            userId: string;
         } | null;
         students: ({
             student: {
@@ -143,21 +158,6 @@ export declare class ClassesController {
             studentId: string;
             classId: string;
             academicYear: string;
-        })[];
-        subjects: ({
-            teacher: {
-                id: string;
-                employeeId: string;
-                qualification: string | null;
-                joiningDate: Date;
-                userId: string;
-            } | null;
-        } & {
-            id: string;
-            name: string;
-            teacherId: string | null;
-            classId: string;
-            code: string;
         })[];
     } & {
         id: string;
