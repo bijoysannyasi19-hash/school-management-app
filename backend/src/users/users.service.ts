@@ -40,7 +40,7 @@ export class UsersService {
     if (!adminExists) {
       await this.createUser({
         email: 'admin@school.com',
-        password: 'securePassword123',
+        password: 'admin123',
         role: Role.SUPER_ADMIN,
       });
       console.log('Super Admin user created: admin@school.com');

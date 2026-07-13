@@ -4,6 +4,7 @@ import { ValidationPipe } from '@nestjs/common';
 import * as express from 'express';
 import { AllExceptionsFilter } from './all-exceptions.filter';
 import { join } from 'path';
+import { UsersService } from './users/users.service';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule, { bodyParser: false });
@@ -20,6 +21,10 @@ async function bootstrap() {
     whitelist: true,
     transform: true,
   }));
+  
+  // Seed the database with the initial super admin if it doesn't exist
+  const usersService = app.get(UsersService);
+  await usersService.setupInitialSuperAdmin();
   
   await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
 }
